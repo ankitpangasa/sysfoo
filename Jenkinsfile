@@ -9,19 +9,19 @@ pipeline {
       stage("one"){
           steps{
               echo 'Compiling'
-              sh 'mvn -f worker/pom.xml compile'
+              sh 'mvn compile'
           }
       }
       stage("two"){
           steps{
               echo 'Testing...'
-              sh 'mvn -f worker/pom.xml test'
+              sh 'mvn test'
           }
       }
       stage("three"){
           steps{
                echo 'Packaging...'
-               sh 'mvn -f worker/pom.xml package -DskipTests'
+               sh 'mvn package -DskipTests'
                archiveArtifacts artifacts: 'target/*.war', followSymlinks: false
           }
       }
