@@ -28,10 +28,9 @@ pipeline {
     }
 
     stage('Build Artifact'){
-        when {
-                branch 'master'
-        }
-    }
+      when {
+        branch 'master'
+      }
     
     parallel{
       stage('package') {
